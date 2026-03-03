@@ -24,7 +24,13 @@ jobs:
 
       - name: Build EXE
         run: |
-          pyinstaller --onefile --noconsole --name OpenMindDownloader --collect-all openmind_hub main.py
+          pyinstaller --onefile --noconsole --name OpenMindDownloader `
+            --collect-all openmind_hub `
+            --collect-submodules openmind_hub `
+            --hidden-import openmind_hub `
+            --hidden-import openmind_hub.plugins `
+            --hidden-import openmind_hub.plugins.openmind `
+            main.py
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
