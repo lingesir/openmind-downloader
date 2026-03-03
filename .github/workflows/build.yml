@@ -32,7 +32,7 @@ jobs:
             --hidden-import openmind_hub.plugins.openmind `
             main.py
 
-      - name: Upload artifact
+      - name: Upload artifact (whole folder)
         uses: actions/upload-artifact@v4
         with:
           name: OpenMindDownloader-Windows
