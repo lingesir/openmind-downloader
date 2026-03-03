@@ -1,3 +1,4 @@
+from openmind_hub import snapshot_download
 import os
 import threading
 import queue
@@ -72,7 +73,7 @@ def download_worker(repo_id: str, token: str, local_dir: str, uiq: "queue.Queue[
         status("加载 openmind_hub（首次可能较慢）…", "blue")
         log("即将 import openmind_hub …")
         t0 = time.time()
-        from openmind_hub import snapshot_download
+        
         t1 = time.time()
         log(f"import openmind_hub 完成，用时 {t1 - t0:.2f}s")
 
@@ -287,3 +288,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
