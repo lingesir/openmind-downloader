@@ -22,9 +22,9 @@ jobs:
           pip install pyinstaller
           pip install -r requirements.txt
 
-      - name: Build EXE
+      - name: Build (onedir)
         run: |
-          pyinstaller --onefile --noconsole --name OpenMindDownloader `
+          pyinstaller --noconsole --name OpenMindDownloader `
             --collect-all openmind_hub `
             --collect-submodules openmind_hub `
             --hidden-import openmind_hub `
@@ -36,4 +36,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: OpenMindDownloader-Windows
-          path: dist/OpenMindDownloader.exe
+          path: dist/OpenMindDownloader/**
